@@ -7,4 +7,13 @@
                 implementationClass="net.klapatch.katalon.plugin.practitest.PractiTestPluginPreferencePage">
         </point>
     </extension>
+
+    <extension
+            point="com.katalon.platform.extensions">
+        <point
+                id="net.klapatch.katalon.plugin.practitest.PractiTestToolItemDescription"
+                extensionPointId="com.katalon.platform.api.extension.newToolItem"
+                implementationClass="net.klapatch.katalon.plugin.practitest.PractiTestToolItemDescription">
+        </point>
+    </extension>
 </plugin>
