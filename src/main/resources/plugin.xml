@@ -1,0 +1,10 @@
+<plugin>
+    <extension
+            point="com.katalon.platform.extensions">
+        <point
+                id="net.klapatch.katalon.plugin.practitest.PractiTestPluginPreferencePage"
+                extensionPointId="com.katalon.platform.api.extension.pluginPreferencePage"
+                implementationClass="net.klapatch.katalon.plugin.practitest.PractiTestPluginPreferencePage">
+        </point>
+    </extension>
+</plugin>
