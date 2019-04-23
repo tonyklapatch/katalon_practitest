@@ -1,5 +1,7 @@
 # PractiTest for Katalon Studio
 
+![PractiTest Settings](docs/settings.png)
+
 WIP PractiTest integration for Katalon Studio.
 
 ## Setup
