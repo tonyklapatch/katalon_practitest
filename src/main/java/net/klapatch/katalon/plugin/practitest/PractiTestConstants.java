@@ -12,4 +12,8 @@ public interface PractiTestConstants {
     String PREF_AUTH_PROJECT = "authentication.project";
 
     String PREF_AUTH_EMAIL = "authentication.email";
+
+    String INTEGRATION_ID = "net.klapatch.plugin.practitest.PractiTestTestCaseIntegration";
+
+    String INTEGRATION_TEST_ID = "practitest.test.id";
 }

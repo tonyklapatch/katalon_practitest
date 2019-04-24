@@ -16,4 +16,13 @@
                 implementationClass="net.klapatch.katalon.plugin.practitest.PractiTestToolItemDescription">
         </point>
     </extension>
+
+    <extension
+            point="com.katalon.platform.extensions">
+        <point
+                id="net.klapatch.katalon.plugin.practitest.PractiTestTestCaseIntegrationViewDescription"
+                extensionPointId="com.katalon.platform.api.extension.testCaseIntegrationViewDescription"
+                implementationClass="net.klapatch.katalon.plugin.practitest.PractiTestTestCaseIntegrationViewDescription">
+        </point>
+    </extension>
 </plugin>
