@@ -40,11 +40,11 @@ public class PractiTestTestCaseIntegrationView implements TestCaseIntegrationVie
         Label lblTestId = new Label(container, SWT.NONE);
         lblTestId.setText("Test ID");
         GridData gridData = new GridData(SWT.LEFT, SWT.TOP, false, false);
+        gridData.widthHint = 100;
         lblTestId.setLayoutData(gridData);
 
         txtTestId = new Text(container, SWT.BORDER);
-        GridData gridData1 = new GridData(SWT.FILL, SWT.CENTER, false, false);
-        gridData.widthHint = 200;
+        GridData gridData1 = new GridData(SWT.FILL, SWT.CENTER, true, false);
         txtTestId.setLayoutData(gridData1);
 
         GridLayout gridLayout = new GridLayout(2, false);
@@ -52,10 +52,12 @@ public class PractiTestTestCaseIntegrationView implements TestCaseIntegrationVie
         gridLayout.horizontalSpacing = 15;
         container.setLayout(gridLayout);
 
+
+
         Integration integration = testCase.getIntegration(PractiTestConstants.INTEGRATION_ID);
-        if(integration != null) {
+        if (integration != null) {
             Map<String, String> integrationProps = integration.getProperties();
-            if(integrationProps.containsKey(PractiTestConstants.INTEGRATION_TEST_ID)){
+            if (integrationProps.containsKey(PractiTestConstants.INTEGRATION_TEST_ID)){
                 txtTestId.setText(integrationProps.get(PractiTestConstants.INTEGRATION_TEST_ID));
             }
         }
@@ -68,7 +70,7 @@ public class PractiTestTestCaseIntegrationView implements TestCaseIntegrationVie
         return container;
     }
 
-    //@Override
+    @Override
     public Integration getIntegrationBeforeSaving()
     {
         PractiTestTestCaseIntegration integration = new PractiTestTestCaseIntegration();
@@ -77,7 +79,7 @@ public class PractiTestTestCaseIntegrationView implements TestCaseIntegrationVie
         return integration;
     }
 
-    //@Override
+    @Override
     public boolean needsSaving() {
         return isEdited;
     }
