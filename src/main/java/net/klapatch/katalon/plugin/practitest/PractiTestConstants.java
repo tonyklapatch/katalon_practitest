@@ -13,7 +13,11 @@ public interface PractiTestConstants {
 
     String PREF_AUTH_EMAIL = "authentication.email";
 
-    String INTEGRATION_ID = "net.klapatch.plugin.practitest.PractiTestTestCaseIntegration";
+    String TEST_CASE_INTEGRATION = "net.klapatch.katalon.plugin.practitest.PractiTestTestCaseIntegration";
 
-    String INTEGRATION_TEST_ID = "practitest.test.id";
+    String TEST_CASE_INTEGRATION_ID = "practitest.test.id";
+
+    String TEST_SUITE_INTEGRATION = "net.klapatch.katalon.plugin.practitest.PractiTestTestSuiteIntegration";
+
+    String TEST_SUITE_INTEGRATION_ID = "practitest.testsuite.id";
 }

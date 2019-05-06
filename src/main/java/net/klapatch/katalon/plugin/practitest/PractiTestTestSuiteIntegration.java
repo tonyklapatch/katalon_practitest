@@ -5,26 +5,26 @@ import com.katalon.platform.api.model.Integration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PractiTestTestCaseIntegration implements Integration
+public class PractiTestTestSuiteIntegration implements Integration
 {
-    private String testId;
+    private String testSuiteId;
 
-    public void setTestId(String testId)
+    public void setTestSuiteId(String testSuiteId)
     {
-        this.testId = testId;
+        this.testSuiteId = testSuiteId;
     }
 
     @Override
     public String getName()
     {
-        return PractiTestConstants.TEST_CASE_INTEGRATION;
+        return PractiTestConstants.TEST_SUITE_INTEGRATION;
     }
 
     @Override
     public Map<String, String> getProperties()
     {
         HashMap<String, String> props = new HashMap<>();
-        props.put(PractiTestConstants.TEST_CASE_INTEGRATION_ID, testId);
+        props.put(PractiTestConstants.TEST_SUITE_INTEGRATION_ID, testSuiteId);
         return props;
     }
 }

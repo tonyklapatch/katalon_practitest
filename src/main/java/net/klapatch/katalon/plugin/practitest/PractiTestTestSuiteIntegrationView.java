@@ -1,9 +1,9 @@
 package net.klapatch.katalon.plugin.practitest;
 
-import com.katalon.platform.api.extension.TestCaseIntegrationViewDescription;
+import com.katalon.platform.api.extension.TestSuiteIntegrationViewDescription;
 import com.katalon.platform.api.model.Integration;
-import com.katalon.platform.api.model.TestCaseEntity;
 
+import com.katalon.platform.api.model.TestSuiteEntity;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -14,40 +14,40 @@ import org.eclipse.swt.widgets.Text;
 
 import java.util.Map;
 
-public class PractiTestTestCaseIntegrationView implements TestCaseIntegrationViewDescription.TestCaseIntegrationView {
+public class PractiTestTestSuiteIntegrationView implements TestSuiteIntegrationViewDescription.TestSuiteIntegrationView {
     private Composite container;
 
-    private Text txtTestId;
+    private Text txtTestSuiteId;
 
     private Boolean isEdited = false;
 
-    public Control onCreateView(Composite parent, TestCaseIntegrationViewDescription.PartActionService partActionService, TestCaseEntity testCase) {
+    public Control onCreateView(Composite parent, TestSuiteIntegrationViewDescription.PartActionService partActionService, TestSuiteEntity testSuite) {
         container = new Composite(parent, SWT.NONE);
 
-        Label lblTestId = new Label(container, SWT.NONE);
-        lblTestId.setText("Test ID");
+        Label lblTestSuiteId = new Label(container, SWT.NONE);
+        lblTestSuiteId.setText("Test Suite ID");
         GridData gridData = new GridData(SWT.LEFT, SWT.TOP, false, false);
         gridData.widthHint = 100;
-        lblTestId.setLayoutData(gridData);
+        lblTestSuiteId.setLayoutData(gridData);
 
-        txtTestId = new Text(container, SWT.BORDER);
+        txtTestSuiteId = new Text(container, SWT.BORDER);
         GridData gridData1 = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        txtTestId.setLayoutData(gridData1);
+        txtTestSuiteId.setLayoutData(gridData1);
 
         GridLayout gridLayout = new GridLayout(2, false);
         gridLayout.verticalSpacing = 10;
         gridLayout.horizontalSpacing = 15;
         container.setLayout(gridLayout);
 
-        Integration integration = testCase.getIntegration(PractiTestConstants.TEST_CASE_INTEGRATION);
+        Integration integration = testSuite.getIntegration(PractiTestConstants.TEST_SUITE_INTEGRATION);
         if (integration != null) {
             Map<String, String> integrationProps = integration.getProperties();
-            if (integrationProps.containsKey(PractiTestConstants.TEST_CASE_INTEGRATION_ID)){
-                txtTestId.setText(integrationProps.get(PractiTestConstants.TEST_CASE_INTEGRATION_ID));
+            if (integrationProps.containsKey(PractiTestConstants.TEST_SUITE_INTEGRATION_ID)){
+                txtTestSuiteId.setText(integrationProps.get(PractiTestConstants.TEST_SUITE_INTEGRATION_ID));
             }
         }
 
-        txtTestId.addModifyListener(modifyEvent -> {
+        txtTestSuiteId.addModifyListener(modifyEvent -> {
             isEdited = true;
             partActionService.markDirty();
         });
@@ -58,8 +58,8 @@ public class PractiTestTestCaseIntegrationView implements TestCaseIntegrationVie
     @Override
     public Integration getIntegrationBeforeSaving()
     {
-        PractiTestTestCaseIntegration integration = new PractiTestTestCaseIntegration();
-        integration.setTestId(txtTestId.getText());
+        PractiTestTestSuiteIntegration integration = new PractiTestTestSuiteIntegration();
+        integration.setTestSuiteId(txtTestSuiteId.getText());
         isEdited = false;
         return integration;
     }
